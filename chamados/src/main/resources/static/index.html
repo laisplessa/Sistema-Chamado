@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#126b70">
+  <title>Chamados · Central de atendimento</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 40%27%3E%3Crect width=%2740%27 height=%2740%27 rx=%2710%27 fill=%27%23126b70%27/%3E%3Ctext x=%2710%27 y=%2729%27 font-family=%27Arial%27 font-size=%2728%27 fill=%27white%27%3EC%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Ir para o conteúdo</a>
+  <aside class="sidebar">
+    <a class="brand" href="#dashboard"><span class="brand-mark">C<span>·</span></span><span>chamados<span class="brand-sub">CENTRAL DE ATENDIMENTO</span></span></a>
+    <p class="nav-label">ESPAÇO DE TRABALHO</p>
+    <nav aria-label="Navegação principal">
+      <a href="#dashboard" data-nav="dashboard"><span data-icon="dashboard"></span>Dashboard</a>
+      <a href="#chamados" data-nav="chamados"><span data-icon="ticket"></span>Chamados</a>
+      <p class="nav-label">CADASTROS</p>
+      <a href="#clientes" data-nav="clientes"><span data-icon="users"></span>Clientes</a>
+      <a href="#categorias" data-nav="categorias"><span data-icon="grid"></span>Categorias</a>
+      <a href="#tecnicos" data-nav="tecnicos"><span data-icon="tool"></span>Técnicos</a>
+    </nav>
+    <div class="sidebar-bottom"><span class="small-logo">C·</span><div>Sistema de Chamados<small>Organize. Acompanhe. Resolva.</small></div></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><span>Central de atendimento <span class="breadcrumb-divider">/</span> <strong id="breadcrumb">Dashboard</strong></span><span class="workspace-label"><span class="status-dot"></span>Espaço de trabalho</span></header>
+    <main id="content" tabindex="-1"></main>
+    <footer>Atendimento organizado, do início à solução.</footer>
+  </div>
+  <dialog id="modal" aria-labelledby="modal-title"><div id="modal-body"></div></dialog>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
