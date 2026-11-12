@@ -2,6 +2,11 @@
 package br.com.sistemas.chamados.entity;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.OrderBy;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -53,6 +58,12 @@ public class Chamado {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tecnico_id")
     private Tecnico tecnico;
+
+    @OneToMany(mappedBy = "chamado", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OrderBy("data ASC, id ASC")
+    private List<Comentario> comentarios = new ArrayList<>();
+
+    public List<Comentario> getComentarios() { return comentarios; }
 
     public Chamado() {}
 

@@ -3,6 +3,11 @@ package br.com.sistemas.chamados.controller;
 
 import java.net.URI;
 import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+import br.com.sistemas.chamados.dto.ChamadoResponse;
+import br.com.sistemas.chamados.service.ChamadoService;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,9 +29,17 @@ import jakarta.validation.Valid;
 public class ClienteController {
 
     private final ClienteService service;
+    private final ChamadoService chamadoService;
 
-    public ClienteController(ClienteService service) {
+    public ClienteController(ClienteService service, ChamadoService chamadoService) {
         this.service = service;
+        this.chamadoService = chamadoService;
+    }
+
+    @GetMapping("/{id}/chamados")
+    public Page<ChamadoResponse> listarChamados(@PathVariable Long id,
+        @PageableDefault(size = 20, sort = "id") Pageable pageable) {
+        return chamadoService.listarPorCliente(id, pageable);
     }
 
     @PostMapping
